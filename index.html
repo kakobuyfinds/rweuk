@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#172d28">
+<title>MyCNBox spreadsheet – produktlänkar, storlekar och QC-bilder</title>
+<meta name="description" content="Svensk guide till MyCNBox spreadsheet. Hitta rätt produktkategori, jämför mått och QC-bilder och räkna på frakt och total kostnad till Sverige.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:title" content="MyCNBox spreadsheet – produktlänkar, storlekar och QC-bilder">
+<meta property="og:description" content="En svensk köpguide för att kontrollera produktvarianter, bedöma QC-bilder och planera leverans till Sverige.">
+<link rel="preconnect" href="https://i5.walmartimages.com">
+<!--
+index.html
+Redaktionellt underlag: Googles första resultatsida kunde inte verifieras. Nedan
+följer tio webbplatser från offentlig webbsökning, utan angiven Google-placering.
+mycnboxspreadsheet.com — sökning efter modell, varumärke och kategori.
+mycnbox.net/faq/ — orderflöde, lagerkontroll, frakt och returer.
+mycnbox.org — stegen från produktval via lager till paket.
+mycnboxlinks.com — produktlänkar från Weidian, Taobao och 1688.
+mycnbox.co.uk/catalog/ — produktkort, kategorifilter och ursprungslänk.
+mycnsheet.com — sortimentsstruktur för sneakers och streetwear.
+mycnboxspreadsheets.org/data-methodology/ — artikel-ID, prisögonblicksbilder och länkstatus.
+mycnboxfindx.com/es/faq/ — storlekstabeller, ordervillkor och leveransfrågor.
+hipobuyyupoo.net/mycnbox-spreadsheet — bildvinklar vid lagerkontroll och samfrakt.
+cafans.com — produktkategorier och katalog som läsaren kan gå vidare till.
+Sekundära sökfraser: MyCNBox köpguide, MyCNBox produktlänkar,
+MyCNBox QC-bilder, MyCNBox frakt till Sverige.
+Längre sökfraser för artiklarna: hitta sneakers efter modellkod, kontrollera en
+Weidian-länk, hitta originalannonsen på Taobao, jämföra leverantörer på 1688,
+kontrollera en utgången produktlänk, välja rätt färgvariant, jämföra storlekar
+i centimeter, mäta innersulan på sneakers, mäta bröstvidden på en hoodie,
+kontrollera ärmlängden på en jacka, mäta huvudomkrets för en keps, jämföra
+remmens längd på en väska, mäta handledsomkrets för ett armband, tolka QC-bilder
+från lager, be om ett foto av storleksetiketten, kontrollera sömmar och
+dragkedjor, dokumentera en avvikelse före frakt, jämföra verklig vikt och
+volymvikt, räkna ut levererad kostnad i SEK, kontrollera moms i kassan,
+bedöma om samfrakt lönar sig, kontrollera returfristen i lagret, välja
+spårbar frakt till Sverige och spara artikel-ID vid prisändringar.
+-->
+<style>
+:root{color-scheme:light;--paper:#f8faf5;--ink:#172d28;--sub:#425850;--line:#cad7ce;--leaf:#e4f0bd;--ice:#edf4f5;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.wrap{width:min(1120px,calc(100% - 2rem));margin-inline:auto}
+h1,h2,h3,p,figure{margin:0}
+h1,h2,h3{line-height:1.1;text-wrap:balance}
+h1{font-size:clamp(2.4rem,6.4vw,5.25rem);letter-spacing:-.06em;overflow-wrap:anywhere}
+h2{font-size:clamp(1.65rem,4vw,2.8rem);letter-spacing:-.035em}
+h3{font-size:1.22rem}
+p+p{margin-top:.75rem}
+a{color:inherit;text-underline-offset:.2em}
+a:focus-visible,summary:focus-visible{outline:3px solid #326856;outline-offset:4px}
+img{display:block;width:100%;height:auto}
+.mast{background:var(--ink);color:var(--white)}
+.mast .wrap,.foot .wrap{display:flex;align-items:center;justify-content:space-between;gap:.65rem 1.5rem;flex-wrap:wrap;padding-block:.85rem}
+.mast a:focus-visible,.hero a:focus-visible{outline-color:var(--leaf)}
+.logo{font-weight:850;letter-spacing:-.02em}
+.label{font-size:.76rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.categories{padding-block:1.15rem}
+.categories h2{font-size:.8rem;text-transform:uppercase;letter-spacing:.09em;margin-bottom:.65rem}
+.categories ul{list-style:none;padding:0;margin:0;display:flex;gap:.45rem;flex-wrap:wrap}
+.categories a{display:block;padding:.48rem .72rem;border:1px solid var(--line);border-radius:6px;background:var(--white);font-size:.88rem;font-weight:700;text-decoration:none}
+.categories a:hover{background:var(--leaf)}
+.hero{display:grid;grid-template-columns:1.25fr 1fr;background:var(--ink);color:var(--white);border-radius:16px;overflow:hidden}
+.hero-copy{padding:clamp(1.35rem,4vw,3.35rem);align-self:center}
+.hero-copy .label{color:var(--leaf);margin-bottom:.8rem}
+.hero-copy p:not(.label){margin-top:1.15rem;max-width:49ch;color:#eff6f0}
+.cta{display:inline-block;margin-top:1.35rem;padding:.66rem 1rem;border-radius:6px;background:var(--leaf);color:var(--ink);font-weight:800}
+.hero figure{display:grid;grid-template-rows:1fr auto;min-width:0;background:#f4f4f4;color:var(--ink)}
+.hero img{height:100%;max-height:390px;min-height:0;object-fit:contain;align-self:center}
+.hero figcaption{padding:.55rem 1rem;border-top:1px solid var(--line);font-size:.84rem;color:var(--sub)}
+.block{margin-block:clamp(2.2rem,6vw,4.2rem)}
+.block h2{margin-bottom:.75rem}
+.intro{max-width:65ch;color:var(--sub)}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:1.15rem}
+.steps article{padding:clamp(1rem,2.5vw,1.6rem);background:var(--white)}
+.steps h3{margin:.45rem 0 .75rem}
+.steps .label{color:#32604f}
+.note{padding:1.1rem 1.25rem;margin-top:1rem;border-left:4px solid #66873a;background:var(--leaf)}
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.7rem;margin-top:1.1rem}
+.gallery figure{overflow:hidden;border:1px solid var(--line);border-radius:9px;background:var(--white)}
+.gallery img{aspect-ratio:1;object-fit:contain;background:#f5f6f4}
+.gallery figcaption{padding:.65rem .75rem;font-size:.87rem;font-weight:700}
+.faq{background:var(--ice);border-radius:12px;padding:clamp(1.15rem,4vw,2.5rem)}
+details{border-top:1px solid var(--line)}
+summary{cursor:pointer;padding:.82rem .12rem;font-weight:750}
+details p{margin:0 .12rem .95rem;max-width:68ch}
+.foot{border-top:1px solid var(--line);font-size:.88rem;color:var(--sub)}
+@media(max-width:760px){
+  .hero,.steps{grid-template-columns:1fr}
+  .hero img{height:min(66vw,325px)}
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "sv",
+  "name": "MyCNBox spreadsheet – produktlänkar, storlekar och QC-bilder",
+  "description": "Svensk guide till MyCNBox spreadsheet. Hitta rätt produktkategori, jämför mått och QC-bilder och räkna på frakt och total kostnad till Sverige.",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Vad är ett MyCNBox spreadsheet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Det är en organiserad lista med produktreferenser och länkar. En sådan lista kan vara ett kalkylblad eller en webbkatalog. Den här sidan är en fristående köpguide med kategorilänkar till cafans.com."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vad gör jag om en produktlänk inte fungerar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sök efter artikel-ID eller modellkod tillsammans med färgen. Kontrollera sedan att säljaren, bilderna och storleksalternativen stämmer. Om du inte kan bekräfta varianten, vänta med beställningen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vad kan QC-bilder visa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De kan visa synliga detaljer som färg, märkning, sömmar och vissa mått. En bild med måttband hjälper dig att kontrollera storleken. För att bedöma äkthet behöver du kunna styrka varans ursprung."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hur uppskattar jag total kostnad till Sverige?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Summera varupriset, lokal och internationell frakt samt eventuella service- och betalavgifter. Kontrollera vilka skatter och avgifter som redan ingår och räkna om till SEK med den växelkurs du faktiskt får."
+      }
+    }
+  ]
+}
+</script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/rweuk/">
+</head>
+<body>
+<header class="mast">
+  <div class="wrap">
+    <a class="logo" href="https://www.cafans.com">cafans.com</a>
+    <span class="label">Svensk köpguide</span>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="categories" aria-labelledby="kategorier">
+    <h2 id="kategorier">Utforska kategorier</h2>
+    <ul>
+      <li><a href="https://cafans.com/category-911-Shoes.html">Skor</a></li>
+      <li><a href="https://cafans.com/category-912-Hoodies%2FSweaters.html">Hoodies och tröjor</a></li>
+      <li><a href="https://cafans.com/category-913-T-Shirts.html">T-shirts</a></li>
+      <li><a href="https://cafans.com/category-914-Jackets.html">Jackor</a></li>
+      <li><a href="https://cafans.com/category-915-Pants%2FShorts.html">Byxor och shorts</a></li>
+      <li><a href="https://cafans.com/category-916-Headwear.html">Kepsar och mössor</a></li>
+      <li><a href="https://cafans.com/category-917-Sets.html">Klädset</a></li>
+      <li><a href="https://cafans.com/category-918-underwear%2Funderpants.html">Underkläder</a></li>
+      <li><a href="https://cafans.com/category-919-Jersey.html">Matchtröjor</a></li>
+      <li><a href="https://cafans.com/category-920-Accessories.html">Accessoarer</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" aria-labelledby="sidtitel">
+    <div class="hero-copy">
+      <p class="label">Från produktlänk till leverans</p>
+      <h1 id="sidtitel">MyCNBox spreadsheet</h1>
+      <p>Ett MyCNBox spreadsheet samlar produktreferenser så att du kan hitta och jämföra varor. Använd den här guiden för att kontrollera annonsen, välja rätt storlek och uppskatta kostnaden för leverans till Sverige.</p>
+      <a class="cta" href="https://www.cafans.com">Öppna produktkatalogen på cafans.com</a>
+    </div>
+    <figure>
+      <img src="https://i5.walmartimages.com/seo/Men-s-Nike-Air-Force-1-Low-07-Triple-White-2020-CW2288-111_15bb92a8-859f-4081-9b5b-3f54941382da.37da930e51d0786f035a0f3f2461a7d3.jpeg?odnHeight=640&amp;odnWidth=640&amp;odnBg=FFFFFF" alt="Vit Nike Air Force 1 ’07 med vit sula, sedd från sidan" width="640" height="640" fetchpriority="high" loading="eager">
+      <figcaption>Bildexempel · Nike Air Force 1 ’07</figcaption>
+    </figure>
+  </section>
+
+  <section class="block" aria-labelledby="kopguide">
+    <h2 id="kopguide">Tre kontroller före ett köp</h2>
+    <p class="intro">Spara artikel-ID, variant och datum i samma anteckning. Då kan du följa upp prisändringar, hitta annonsen igen och kontrollera att bilderna visar rätt vara.</p>
+    <div class="steps">
+      <article>
+        <p class="label">01 · Produktlänkar</p>
+        <h3>Kontrollera ursprungsannonsen</h3>
+        <p>På Weidian, Taobao eller 1688 kan en annons samla flera färger och utföranden. Kontrollera att produktlänken öppnar rätt annons och att artikel-ID, färgvariant och storleksval stämmer. För sneakers är modellkoden en bättre startpunkt än ett kort produktnamn.</p>
+        <p>Jämför två annonser för samma variant. Kontrollera lagersaldo, vad som ingår i priset och vilka returvillkor säljaren anger. Spara en skärmbild av variantvalet när du beställer.</p>
+      </article>
+      <article>
+        <p class="label">02 · Storlekar och QC</p>
+        <h3>Mät något som redan passar</h3>
+        <p>Mät bröstvidden plant på en hoodie och ärmlängden på en jacka. För skor kan du jämföra en uppmätt innersula med säljarens innermått i centimeter. För kepsar, väskor och armband är huvudomkrets, remlängd respektive handledsomkrets bättre utgångspunkter.</p>
+        <p>När varan har kommit till lagret kan du granska QC-bilderna. Be om en närbild på storleksetiketten eller en bild med måttband om något är oklart. Titta även på sömmar och dragkedjor, och dokumentera avvikelser medan det finns tid att begära retur.</p>
+      </article>
+      <article>
+        <p class="label">03 · Frakt till Sverige</p>
+        <h3>Jämför priset hela vägen hem</h3>
+        <p>Kontrollera både paketets verkliga vikt och volymvikt. Be om emballagets yttermått och jämför transportörens debiteringsgrund. En skokartong kan påverka priset genom sin storlek även när den väger lite.</p>
+        <p>Jämför samfrakt med separata försändelser med samma krav på spårning. Kontrollera vad som ingår i fraktpriset, om moms redan tagits ut i kassan och vilka eventuella avgifter som tillkommer. Räkna om totalsumman till SEK innan du jämför alternativen.</p>
+      </article>
+    </div>
+    <aside class="note"><strong>Exempel på en storlekskontroll</strong><br>Om en tröja du gillar är 56 cm från armhåla till armhåla när den ligger plant, motsvarar det cirka 112 cm runt plagget. Kontrollera om säljarens tabell anger platt bredd, plaggets omkrets eller kroppsmått.</aside>
+  </section>
+
+  <section class="block" aria-labelledby="bildexempel">
+    <h2 id="bildexempel">Detaljer värda en närbild</h2>
+    <p class="intro">Bilderna illustrerar olika produkttyper. När du väljer en vara, jämför detaljer som huva och dragkedja, kepsens spänne, väskans remfästen eller armbandets lås.</p>
+    <div class="gallery">
+      <figure>
+        <img src="https://assets.christiandior.com/is/image/diorprod/627C29A2661X5899_SBG_E01?%24r9x10_raw%24=&amp;bfc=on&amp;crop=0%2C0%2C4000%2C5000&amp;hei=500&amp;qlt=78&amp;scale=1&amp;wid=450" alt="Mörkblå Dior-jacka med huva och dragkedja, sedd framifrån" width="450" height="500" loading="lazy" decoding="async">
+        <figcaption>Dior · Jacka</figcaption>
+      </figure>
+      <figure>
+        <img src="https://brandol.jp/upload/save_image/gu-200035-kqwbg-9791-l_1.jpg" alt="Beige Gucci-keps med brunt GG-mönster och böjd skärm" width="600" height="600" loading="lazy" decoding="async">
+        <figcaption>Gucci · Keps</figcaption>
+      </figure>
+      <figure>
+        <img src="https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-neverfull-mm--M46987_PM1_Back%20view.png?hei=480&amp;wid=480" alt="Brun Louis Vuitton Neverfull MM med monogram och matchande liten väska" width="480" height="480" loading="lazy" decoding="async">
+        <figcaption>Louis Vuitton · Väska</figcaption>
+      </figure>
+      <figure>
+        <img src="https://kream-phinf.pstatic.net/MjAyNTA3MzFfNzAg/MDAxNzUzODk4MTE1MjI3.WHGujKqNd9mT7aHEnAwoupW_atTkD6iQczFjUwc4HVMg.QIMaa4Wt7_-kLRs4KpRV-NQhSMFSfTE8Ggprf8CyWYwg.PNG/a_2fba6b33de3f40fc847572fc7a5614b4.png?type=m_webp" alt="Orange Hermès Clic H-armband med guldfärgat H-lås" width="525" height="525" loading="lazy" decoding="async">
+        <figcaption>Hermès · Armband</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="block faq" aria-labelledby="fragor">
+    <h2 id="fragor">Vanliga frågor</h2>
+    <details open>
+      <summary>Vad är ett MyCNBox spreadsheet?</summary>
+      <p>Det är en organiserad lista med produktreferenser och länkar. En sådan lista kan vara ett kalkylblad eller en webbkatalog. Den här sidan är en fristående köpguide med kategorilänkar till cafans.com.</p>
+    </details>
+    <details>
+      <summary>Vad gör jag om en produktlänk inte fungerar?</summary>
+      <p>Sök efter artikel-ID eller modellkod tillsammans med färgen. Kontrollera sedan att säljaren, bilderna och storleksalternativen stämmer. Om du inte kan bekräfta varianten, vänta med beställningen.</p>
+    </details>
+    <details>
+      <summary>Vad kan QC-bilder visa?</summary>
+      <p>De kan visa synliga detaljer som färg, märkning, sömmar och vissa mått. En bild med måttband hjälper dig att kontrollera storleken. För att bedöma äkthet behöver du kunna styrka varans ursprung.</p>
+    </details>
+    <details>
+      <summary>Hur uppskattar jag total kostnad till Sverige?</summary>
+      <p>Summera varupriset, lokal och internationell frakt samt eventuella service- och betalavgifter. Kontrollera vilka skatter och avgifter som redan ingår och räkna om till SEK med den växelkurs du faktiskt får.</p>
+    </details>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p>Fristående köpguide. Varumärkesbilderna används som exempel.</p>
+    <a href="https://www.cafans.com">Besök cafans.com</a>
+  </div>
+</footer>
+</body>
+</html>
